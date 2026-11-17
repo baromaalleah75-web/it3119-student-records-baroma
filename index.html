@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Records System</title>
+</head>
+<body>
+<main class="page-shell">
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Campus administration</p>
+      <h1>Student Records</h1>
+    </div>
+  </header>
+  <form id="login" class="panel auth-panel">
+    <h2>Operator sign in</h2>
+    <label for="email">Email</label>
+    <input id="email" type="email" autocomplete="username" required />
+    <label for="password">Password</label>
+    <input id="password" type="password" autocomplete="current-password" required />
+    <div class="button-row">
+      <button type="submit">Sign in</button>
+      <button id="register" class="button-secondary" type="button">Register</button>
+    </div>
+  </form>
+  <p id="auth-message" class="status-message" role="status" aria-live="polite"></p>
+  <section id="app" class="records-app" hidden>
+    <div class="app-toolbar">
+      <p id="current-user" class="muted"></p>
+      <button id="logout" class="button-secondary" type="button">Sign out</button>
+    </div>
+    <div class="content-grid">
+      <section class="panel">
+        <h2 id="form-title">Add a student</h2>
+        <form id="student-form" class="student-form">
+          <input id="student-id" type="hidden" />
+          <label for="student-no">Student number</label>
+          <input id="student-no" autocomplete="off" required />
+          <label for="first-name">First name</label>
+          <input id="first-name" autocomplete="given-name" required />
+          <label for="last-name">Last name</label>
+          <input id="last-name" autocomplete="family-name" required />
+          <label for="year">Year level</label>
+          <input id="year" type="number" min="1" max="4" step="1" required />
+          <label for="student-email">Student email</label>
+          <input id="student-email" type="email" autocomplete="email" required />
+          <label for="course">Course</label>
+          <select id="course" required>
+            <option value="">Select a course</option>
+          </select>
+          <div class="button-row">
+            <button id="save-student" type="submit">Save student</button>
+            <button id="clear" class="button-secondary" type="button">Clear form</button>
+          </div>
+        </form>
+        <p id="message" class="status-message" role="status" aria-live="polite"></p>
+      </section>
+      <section class="panel student-panel">
+        <div class="section-heading">
+          <div>
+            <h2>Student list</h2>
+            <p class="muted">Search, edit, or remove student records.</p>
+          </div>
+          <button id="refresh" class="button-secondary" type="button">Refresh</button>
+        </div>
+        <label for="search">Search name or student number</label>
+        <input id="search" type="search" />
+        <ul id="list" class="student-list"></ul>
+        <div class="report-panel">
+          <h2>Course report</h2>
+          <p class="muted">Select a course in the form to count its students.</p>
+          <button id="count" class="button-secondary" type="button">Count students</button>
+          <p id="report" class="status-message" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
